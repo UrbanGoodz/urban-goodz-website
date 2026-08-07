@@ -1,30 +1,26 @@
 # Urban Goodz — Production Deployment
 
-## Architecture
+## Architecture (production, current)
 
 ```
 Visitor
   │
   ▼
-Urban Goodz website  (TanStack Start · React 19 · prerendered + SSR)
+Urban Goodz website  (TanStack Start · React 19 · static prerendered build)
   │   /join?as=app|business|driver|samaritan
   ▼
-submitSignup  (server function · POST /_serverFn/<id>)
-  │   CSRF-guarded · Zod-validated · server-only
+submitWaitlist  (src/lib/waitlist.ts · client-side fetch, no server hop)
+  │   Zod-validated on the client · honeypot field
   ▼
-processLead  (src/server/lead/pipeline.ts)
-  │
-  ├─ 1. Spam detection      honeypot · timing · disposable domains · links · rate limit
-  ├─ 2. Normalisation       name split · city/state · UA parse · interest mapping · UTM
-  ├─ 3. Storage adapters    retry ×3 exponential → dead-letter queue → admin alert
-  ├─ 4. CRM adapter         best-effort, never blocks a stored lead
-  ├─ 5. Email adapter       branded confirmation + admin notification
-  ├─ 6. Analytics adapters  server-side events, provider-agnostic
-  └─ 7. Notification        admin email, plus failure alert with the raw lead
+admin.urbangoodzdelivery.com/api/v1/urban-goodz/waitlist  (Laravel, public POST)
+  │   server-side validation · honeypot re-check · rate-limited at the route
+  ▼
+MySQL  urban_goodz_waitlist table  (visible in the admin panel's Waitlist screen)
 ```
 
-The frontend only ever calls `submitSignup`. Changing storage, CRM, email or
-analytics providers is an environment change — no component is touched.
+There is no Node server, no `submitSignup` server function, and no
+`processLead` pipeline in production — see "Legacy Node pipeline" below for
+what that code is actually for now.
 
 ## Storage destinations
 
@@ -59,24 +55,48 @@ stub that throws loudly rather than silently dropping leads, `none` default.
 6. Set `GOOGLE_SHEET_ID` (from the sheet URL), `GOOGLE_SERVICE_ACCOUNT_EMAIL`
    and `GOOGLE_PRIVATE_KEY` (the whole PEM; `\n` escapes are handled).
 
-## Deploy
+## Deploy (current: static site + direct-to-backend API)
 
-Requires a **Node server**. Static hosting will not run the API.
+Production is a **static prerendered build** — no Node server runs behind
+`urbangoodzdelivery.com`. The site talks straight to the Laravel admin panel
+over HTTPS:
+
+```
+Urban Goodz Website (static build, prerendered)
+        │
+        │  HTTPS POST (browser → API, no server in between)
+        ▼
+admin.urbangoodzdelivery.com/api/v1/urban-goodz/waitlist
+  (Laravel · UrbanGoodzWaitlistController@store)
+        │
+        ▼
+MySQL — urban_goodz_waitlist table
+```
+
+The frontend (`src/lib/waitlist.ts`, called from `SignupForm.tsx`) posts
+directly to that endpoint; `VITE_WAITLIST_ENDPOINT` overrides it if the API
+ever moves. No server-side secrets ship in this path — the endpoint is public
+by design (pre-signup), honeypot-guarded and rate-limited on the Laravel side.
 
 ```bash
 npm ci
-npm run build          # vite build + tsc --noEmit
-npm run preflight      # verifies configuration before you go live
-npm start              # node .output/server/index.mjs
+npm run build          # vite build + tsc --noEmit, prerenders every route
 ```
 
-Put it behind a reverse proxy terminating TLS, forwarding `X-Forwarded-For`.
-Set `PORT` and all secrets in the process environment (systemd unit, Docker
-env-file, or your platform's secret store) — never commit `.env`.
+Upload `.output/public` (or wherever the static adapter emits) to the static
+host. There is no `npm start` step in production.
 
-Run under a supervisor that restarts on exit (systemd, PM2, Docker `restart:
-unless-stopped`) and persist `LEAD_QUEUE_DIR` on a real volume, since that is
-the dead-letter store.
+### Legacy Node pipeline (local dev only)
+
+`src/server/lead/*`, `scripts/preflight.mjs`, `scripts/test-signup.mjs`,
+`LEAD_STORAGE`/SMTP env vars, and the `npm start` / `node .output/server/index.mjs`
+path still exist in this repo and still work, but only against a Node host you
+run yourself — production does not use them. They're kept because they're the
+easiest way to smoke-test the lead-capture logic locally (`npm run smoke:signup`
+against a `vite dev` server) without hitting the real production API, and as a
+ready-made path if the site ever moves off static hosting. Do not treat a
+failing `npm run preflight` (missing `SMTP_PASSWORD`, empty `LEAD_STORAGE`) as
+a production blocker — it's auditing a pipeline production doesn't run.
 
 ## Operations
 
