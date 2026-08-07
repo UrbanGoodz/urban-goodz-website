@@ -1,0 +1,44 @@
+{
+  "name": "tanstack-start-example-basic",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && tsc --noEmit",
+    "preview": "vite preview",
+    "start": "node .output/server/index.mjs",
+    "preflight": "node --env-file-if-exists=.env scripts/preflight.mjs",
+    "queue:list": "node --env-file-if-exists=.env scripts/replay-queue.mjs",
+    "queue:replay": "node --env-file-if-exists=.env scripts/replay-queue.mjs --commit",
+    "smoke:signup": "node --env-file-if-exists=.env scripts/test-signup.mjs",
+    "emails:preview": "node scripts/preview-emails.mjs",
+    "smoke:ratelimit": "node scripts/test-ratelimit.mjs",
+    "smoke:smtp": "node --env-file-if-exists=.env scripts/test-smtp.mjs",
+    "smoke:smtp:local": "node scripts/test-smtp.mjs --local"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.170.20",
+    "@tanstack/react-router-devtools": "^1.167.1",
+    "@tanstack/react-start": "^1.168.37",
+    "motion": "^13.0.0",
+    "nodemailer": "^9.0.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^22.5.4",
+    "@types/nodemailer": "^8.0.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "@vitejs/plugin-react": "^6.0.1",
+    "nitro": "^3.0.260311-beta",
+    "tailwindcss": "^4.2.2",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "vite": "^8.0.14"
+  }
+}
