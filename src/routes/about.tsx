@@ -104,9 +104,12 @@ function About() {
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-seasoning/20 blur-3xl"
               />
-              <span className="inline-grid size-14 place-items-center rounded-2xl grad-seasoning text-ug-black">
-                <Icon name="community" size={26} />
-              </span>
+              <img
+                src="/images/founder/dandre-speaking.png"
+                alt={`${site.founder} speaking`}
+                className="size-14 rounded-2xl object-cover"
+                loading="lazy"
+              />
               <blockquote className="mt-6 font-display text-xl font-semibold leading-snug">
                 “I didn’t build Urban Goodz to become another delivery company. I built it because I believe
                 technology should strengthen communities instead of replacing them. Black Wall Street wasn’t
@@ -162,7 +165,7 @@ function About() {
             <Reveal>
               <div className="overflow-hidden rounded-[2.5rem] border border-line shadow-card">
                 <img
-                  src="/images/founder/dandre-good.jpg"
+                  src="/images/founder/dandre-good.png"
                   alt={`${site.founder}, founder of Urban Goodz`}
                   className="aspect-[4/5] w-full object-cover"
                   loading="lazy"

@@ -57,7 +57,7 @@ export function AiSection() {
               <div className="flex -space-x-3 shrink-0">
                 <img
                   src="/images/ai/ebony-avatar.jpg"
-                  alt="Ebony"
+                  alt="Monique"
                   className="size-12 rounded-full object-cover ring-2 ring-seasoning"
                 />
                 <img
@@ -68,7 +68,7 @@ export function AiSection() {
               </div>
               <div>
                 <p className="font-display text-xl font-bold text-ink-on-dark">
-                  Meet Ebony & Skylar — Your Digital Teammates
+                  Meet Monique & Skylar — Your Digital Teammates
                 </p>
                 <p className="mt-1 text-sm text-mute-on-dark">
                   Local Lifestyle Concierge & Executive Chief of Staff working 24/7 across the ecosystem.

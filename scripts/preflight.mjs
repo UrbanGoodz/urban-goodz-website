@@ -20,8 +20,15 @@ console.log('\nUrban Goodz — production preflight\n')
 
 console.log('Storage')
 const storage = list('LEAD_STORAGE')
-if (!storage.length) bad('LEAD_STORAGE is empty — every lead will go straight to the dead-letter queue')
-else ok(`providers: ${storage.join(', ')}`)
+const clientEndpoint = env('VITE_WAITLIST_ENDPOINT')
+if (!storage.length) {
+  if (clientEndpoint) {
+    ok('client-side capture: VITE_WAITLIST_ENDPOINT is set (static production path)')
+    meh('LEAD_STORAGE empty — the server pipeline only runs on a Node host, never on the static site')
+  } else {
+    bad('LEAD_STORAGE is empty and VITE_WAITLIST_ENDPOINT is not set — no lead destination configured')
+  }
+} else ok(`providers: ${storage.join(', ')}`)
 
 if (storage.includes('google-sheets')) {
   const need = ['GOOGLE_SHEET_ID', 'GOOGLE_SERVICE_ACCOUNT_EMAIL', 'GOOGLE_PRIVATE_KEY']

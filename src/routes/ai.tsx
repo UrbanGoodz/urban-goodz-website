@@ -11,13 +11,13 @@ export const Route = createFileRoute('/ai')({
   head: () => ({
     meta: [
       ...seo({
-        title: 'Meet Ebony & Skylar — Urban Goodz AI Team',
+        title: 'Meet Monique & Skylar — Urban Goodz AI Team',
         description:
-          'Ebony is your local lifestyle concierge. Skylar is your executive chief of staff. Meet the two Urban Goodz Digital Employees working across the whole ecosystem, 24/7.',
+          'Monique is your local lifestyle concierge. Skylar is your executive chief of staff. Meet the two Urban Goodz Digital Employees working across the whole ecosystem, 24/7.',
         path: '/ai',
         keywords: [
           'Urban Goodz AI',
-          'Ebony AI concierge',
+          'Monique AI concierge',
           'Skylar chief of staff',
           'AI digital employee',
           'local commerce AI',
@@ -162,7 +162,7 @@ function AiTeam() {
             <Reveal immediate delay={180}>
               <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-mute-on-dark md:text-xl">
                 Not everyone on our team wears a badge. Some run on intelligence. Meet{' '}
-                <strong className="font-semibold text-ink-on-dark">Ebony</strong> and{' '}
+                <strong className="font-semibold text-ink-on-dark">Monique</strong> and{' '}
                 <strong className="font-semibold text-ink-on-dark">Skylar</strong> — more than AI,
                 and part of the Urban Goodz family. Built to help customers, businesses, drivers and
                 creators make smarter decisions and enjoy every interaction.
@@ -180,12 +180,12 @@ function AiTeam() {
             <Reveal immediate delay={200}>
               <PortraitFrame
                 initial="E"
-                name="Ebony"
+                name="Monique"
                 role="Local Lifestyle Concierge"
                 src="/images/ai/ebony.jpg"
               />
               <LinkBtn to="/join" search={{ as: 'app' }} variant="primary" className="mt-5 w-full">
-                Talk to Ebony
+                Talk to Monique
                 <Icon name="arrow-up-right" size={17} />
               </LinkBtn>
             </Reveal>
@@ -205,13 +205,13 @@ function AiTeam() {
         </div>
       </section>
 
-      {/* ══ SECTION 2: Ebony (Light) ═════════════════════════════════ */}
+      {/* ══ SECTION 2: Monique (Light) ═════════════════════════════════ */}
       <section className="surface-paper py-24 md:py-32">
         <div className="container-ug">
           <div className="grid items-start gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
             <div>
               <Reveal className="flex">
-                <span className="eyebrow">Meet Ebony</span>
+                <span className="eyebrow">Meet Monique</span>
               </Reveal>
               <Reveal delay={80}>
                 <h2 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-ug-black md:text-5xl">
@@ -221,7 +221,7 @@ function AiTeam() {
               <div className="mt-8 space-y-5 text-lg leading-relaxed text-ug-black/70">
                 <Reveal delay={140} as="span">
                   <p>
-                    Ebony is the face of the Urban Goodz customer experience. Confident. Funny.
+                    Monique is the face of the Urban Goodz customer experience. Confident. Funny.
                     Smart. Stylish. Authentic. And she knows her city.
                   </p>
                 </Reveal>
@@ -257,14 +257,14 @@ function AiTeam() {
 
             <Reveal delay={160} className="lg:sticky lg:top-28">
               <ChatDemo
-                name="Ebony"
+                name="Monique"
                 role="Local Lifestyle Concierge"
                 icon="community"
                 avatar="/images/ai/ebony-avatar.jpg"
                 turns={ebonyTurns}
               />
               <p className="mt-4 text-center text-xs text-ug-black/45">
-                An illustration of how Ebony works.
+                An illustration of how Monique works.
               </p>
             </Reveal>
           </div>
@@ -302,7 +302,7 @@ function AiTeam() {
               <div className="mt-8 space-y-5 text-lg leading-relaxed text-mute-on-dark">
                 <Reveal delay={140} as="span">
                   <p>
-                    While Ebony helps customers, Skylar helps businesses succeed — the operations
+                    While Monique helps customers, Skylar helps businesses succeed — the operations
                     partner for owners, vendors, fleet managers, dispatchers and administrators.
                   </p>
                 </Reveal>
@@ -348,7 +348,7 @@ function AiTeam() {
                 Not hidden inside a <span className="text-grad-dark">chat window.</span>
               </>
             }
-            lede="Ebony and Skylar were designed to become trusted members of the Urban Goodz team. You’ll meet them throughout the platform — guiding decisions, answering questions and recommending what to do next."
+            lede="Monique and Skylar were designed to become trusted members of the Urban Goodz team. You’ll meet them throughout the platform — guiding decisions, answering questions and recommending what to do next."
           />
 
           <div className="mt-20">
@@ -389,7 +389,7 @@ function AiTeam() {
                 Ten specialized AI engines. <span className="text-grad">One operating brain.</span>
               </>
             }
-            lede="Behind Ebony and Skylar sits a coordinated multi-model AI infrastructure. Every module is tailored to specific real-world tasks across delivery, retail, size prediction, and business analytics."
+            lede="Behind Monique and Skylar sits a coordinated multi-model AI infrastructure. Every module is tailored to specific real-world tasks across delivery, retail, size prediction, and business analytics."
           />
 
           <Reveal delay={120} className="mx-auto mt-16 max-w-3xl">
@@ -428,7 +428,7 @@ function AiTeam() {
                 The difference between a <span className="text-grad-dark">chatbot and a teammate.</span>
               </>
             }
-            lede="Most chatbots recite database queries or apologize when they don’t understand. Ebony and Skylar synthesize real context, understand intent, and proactively draft solutions before you even ask."
+            lede="Most chatbots recite database queries or apologize when they don’t understand. Monique and Skylar synthesize real context, understand intent, and proactively draft solutions before you even ask."
           />
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -438,7 +438,7 @@ function AiTeam() {
                   E
                 </span>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-ug-black">Ebony in Action</h3>
+                  <h3 className="font-display text-xl font-bold text-ug-black">Monique in Action</h3>
                   <p className="text-xs text-ug-black/60">Local Lifestyle Concierge</p>
                 </div>
               </div>
@@ -453,7 +453,7 @@ function AiTeam() {
                 </div>
                 <div className="rounded-2xl bg-cream/70 p-4 border border-seasoning/30">
                   <p className="font-semibold text-ug-black text-xs uppercase tracking-wider text-seasoning-600 mb-1">
-                    Ebony's Teammate Response
+                    Monique's Teammate Response
                   </p>
                   <p className="text-ug-black font-medium">
                     "Angela’s Kitchen has a table at 7:15 — 4 entrées lands you around $72. Held it for you, and noted your sister’s birthday on Saturday."
@@ -545,7 +545,7 @@ function AiTeam() {
             </Reveal>
             <Reveal delay={220}>
               <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-ug-black/70">
-                Ebony and Skylar exist to remove frustration and give hours back — so people spend
+                Monique and Skylar exist to remove frustration and give hours back — so people spend
                 less time navigating software and more time running businesses, supporting local
                 communities and discovering what their city has to offer.
               </p>
@@ -571,7 +571,7 @@ function AiTeam() {
           </Reveal>
           <Reveal immediate delay={100}>
             <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-ink-on-dark sm:text-4xl md:text-5xl">
-              Meet Ebony & Skylar <span className="text-grad">in the Urban Goodz ecosystem.</span>
+              Meet Monique & Skylar <span className="text-grad">in the Urban Goodz ecosystem.</span>
             </h2>
           </Reveal>
           <Reveal immediate delay={200}>
@@ -582,7 +582,7 @@ function AiTeam() {
           <Reveal immediate delay={300}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <LinkBtn to="/join" search={{ as: 'app' }} variant="primary">
-                Talk to Ebony
+                Talk to Monique
                 <Icon name="arrow-up-right" size={18} />
               </LinkBtn>
               <LinkBtn to="/join" search={{ as: 'business' }} variant="on-dark">

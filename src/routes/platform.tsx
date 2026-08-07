@@ -263,33 +263,16 @@ function Platform() {
         <div aria-hidden="true" className="absolute inset-0 bg-grid-light opacity-50" />
         <div className="container-ug relative py-24 md:py-36">
           <div className="grid items-start gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-            {/* ── Founder portrait · reserved ──────────────────────────
-                Swap the placeholder block below for:
-                <img src="/images/founder/dandre-good.jpg" alt="D’Andre Good, Founder and CEO"
-                     className="size-full object-cover" />                        */}
             <Reveal>
               <figure className="relative">
                 <div className="overflow-hidden rounded-[2rem] border border-line-on-dark bg-ink-800 shadow-lift">
                   <div className="relative aspect-[4/5] w-full">
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,rgba(237,153,20,0.16),transparent_62%)]"
+                    <img
+                      src="/images/founder/dandre-good.png"
+                      alt={`${site.founder}, Founder and CEO`}
+                      className="size-full object-cover"
+                      loading="lazy"
                     />
-                    <div className="absolute inset-0 grid place-items-center">
-                      <div className="text-center">
-                        <span className="mx-auto grid size-20 place-items-center rounded-full border border-line-on-dark bg-ink-900/80">
-                          <Icon name="spark" size={26} className="text-seasoning" />
-                        </span>
-                        <p className="mt-5 font-display text-lg font-semibold text-ink-on-dark">
-                          {site.founder}
-                        </p>
-                        <p className="mt-1 text-sm text-mute-on-dark">{site.founderRole}</p>
-                        <p className="mx-auto mt-6 max-w-[13rem] text-xs leading-relaxed text-mute-on-dark/70">
-                          Portrait reserved — this frame is sized for a full-bleed founder photograph
-                          or short video loop.
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <figcaption className="mt-5 flex items-center gap-2.5 text-sm text-mute-on-dark">

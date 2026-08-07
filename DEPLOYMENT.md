@@ -120,6 +120,24 @@ Events: Signup Started · Signup Completed · Email Confirmed · Waitlist Joined
 Driver / Business / Marketplace / Medical / Freight / Services / Stranded /
 Creator / Investor / Partner Interest.
 
+## Web push notifications
+
+`src/lib/firebaseConfig.ts`, `src/lib/push.ts`, `public/firebase-messaging-sw.js`,
+`src/components/PushOptIn.tsx`. Uses the same Firebase project ("urbangoodz")
+the mobile apps already use — the web config values are safe to ship client-side
+and are already wired in.
+
+The opt-in banner stays **hidden** until both of these are set at build time:
+
+| Env var | From |
+|---|---|
+| `VITE_FIREBASE_VAPID_KEY` | Firebase console → Project settings → Cloud Messaging → Web configuration → Generate key pair. Not yet generated — the admin panel's `push_notification_key` business setting exists but is empty. |
+| `VITE_PUSH_SUBSCRIBE_WEBHOOK_URL` | A public-write endpoint (Zapier/Make webhook, Google Apps Script, etc.) that accepts a POSTed `{ type: 'push_subscription', token, landingPage, timestamp }` JSON body and stores it somewhere useful. There's no Node server behind this static deployment to host a server function, so the client POSTs directly — same reasoning as `LEAD_STORAGE=webhook` for leads. |
+
+If a webhook host other than `fcmregistrations.googleapis.com` /
+`firebaseinstallations.googleapis.com` is used, add it to the `connect-src` CSP
+directive in `vite.config.ts` or the browser will silently block the request.
+
 ## App store links
 
 `src/lib/appstore.ts`. Both buttons route to `/join?as=app` until

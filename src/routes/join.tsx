@@ -111,11 +111,11 @@ function Join() {
                 <div className="mt-8 flex items-center gap-3.5 rounded-2xl border border-seasoning/30 bg-seasoning/10 p-4">
                   <img
                     src="/images/ai/ebony-avatar.jpg"
-                    alt="Ebony"
+                    alt="Monique"
                     className="size-10 rounded-full object-cover ring-2 ring-seasoning shrink-0"
                   />
                   <div>
-                    <p className="text-xs font-bold text-seasoning-700 uppercase tracking-wider">Ebony · Concierge</p>
+                    <p className="text-xs font-bold text-seasoning-700 uppercase tracking-wider">Monique · Concierge</p>
                     <p className="text-sm font-medium text-ug-black/85">
                       "I’ll welcome you to the waitlist and give you first dibs on exclusive local drops in your zip code."
                     </p>

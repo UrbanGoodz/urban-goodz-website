@@ -26,7 +26,7 @@ export function MarketplaceVisual() {
         <Icon name="search" size={13} className="text-ug-black/50" />
         <span className="text-xs text-ug-black/50">Search everything local…</span>
         <span className="ml-auto flex items-center gap-1 rounded-full bg-seasoning/15 px-2 py-0.5 text-[10px] font-bold text-seasoning-600">
-          <span className="size-1 rounded-full bg-seasoning animate-ping" /> Ebony AI
+          <span className="size-1 rounded-full bg-seasoning animate-ping" /> Monique AI
         </span>
       </div>
       <div className="mt-4 grid grid-cols-3 gap-3">
@@ -83,7 +83,7 @@ export function FashionVisual() {
           </span>
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-display text-sm font-bold text-ug-black">Ebony Predicted Size</p>
+          <p className="font-display text-sm font-bold text-ug-black">Monique Predicted Size</p>
           <div className="mt-3 flex items-end gap-2">
             <span className="font-display text-4xl font-bold text-grad-dark">8</span>
             <span className="pb-1 text-xs font-medium text-ug-black/60">for this brand</span>
@@ -198,12 +198,12 @@ export function AiVisual() {
       <div className="rounded-2xl bg-ug-black p-4 text-ink-on-dark shadow-card">
         <div className="flex items-center gap-3">
           <div className="flex -space-x-2 shrink-0">
-            <img src="/images/ai/ebony-avatar.jpg" alt="Ebony" className="size-8 rounded-full object-cover ring-2 ring-seasoning" />
+            <img src="/images/ai/ebony-avatar.jpg" alt="Monique" className="size-8 rounded-full object-cover ring-2 ring-seasoning" />
             <img src="/images/ai/skylar-avatar.jpg" alt="Skylar" className="size-8 rounded-full object-cover ring-2 ring-dijon" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="flex items-center gap-2 text-sm font-bold text-white">
-              Ebony & Skylar
+              Monique & Skylar
               <span className="flex items-center gap-1 rounded-full bg-seasoning/20 px-2 py-0.5 text-[10px] font-bold text-seasoning-300">
                 <Icon name="spark" size={9} /> Online
               </span>

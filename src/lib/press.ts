@@ -1,3 +1,6 @@
+import { markets } from './markets'
+import { aiSystems } from './platform'
+
 export type PressKind = 'feature' | 'interview' | 'award' | 'program' | 'profile'
 
 export type PressItem = {
@@ -46,7 +49,6 @@ export const pressItems: PressItem[] = [
     date: '2022',
     description:
       'One of the first startups admitted to the gener8tor Huntsville Investment Accelerator, with 12 weeks of intensive mentorship and seed support.',
-    url: 'https://gener8tor.com/',
     spotlight: true,
   },
   {
@@ -58,7 +60,6 @@ export const pressItems: PressItem[] = [
     date: 'Spring 2022',
     description:
       'Selected for the Spring 2022 gBETA Houston cohort, the free, 5-week accelerator program for early-stage startups powered by gener8tor.',
-    url: 'https://www.gener8tor.com/',
   },
   {
     id: 'innovation-map',
@@ -69,7 +70,6 @@ export const pressItems: PressItem[] = [
     date: 'May 16, 2022',
     description:
       'InnovationMap covered Urban Eatz’s selection for the Spring 2022 gBETA Houston cohort — reporting on the startup and the city’s startup momentum.',
-    url: 'https://houston.innovationmap.com/',
   },
   {
     id: 'houston-business-journal',
@@ -104,7 +104,6 @@ export const pressItems: PressItem[] = [
     date: 'Dec 8, 2020',
     description:
       'The Houston Chronicle covered how Urban Eatz was creating opportunity for the restaurants and neighborhoods that big platforms overlook.',
-    url: 'https://www.chron.com/',
     spotlight: true,
   },
   {
@@ -116,7 +115,6 @@ export const pressItems: PressItem[] = [
     date: 'Sep 1, 2020',
     description:
       'VoyageHouston sat down with the founders to talk about launching during a pandemic, serving the community, and what drives the mission.',
-    url: 'https://voyagehouston.com/',
   },
   {
     id: 'canvas-rebel',
@@ -127,7 +125,6 @@ export const pressItems: PressItem[] = [
     date: 'Jun 30, 2022',
     description:
       'CanvasRebel featured founder D’Andre Good in conversation about the journey, the challenges, and the vision for Urban Goodz.',
-    url: 'https://canvasrebel.com/',
   },
   {
     id: 'melanin-minds',
@@ -138,7 +135,6 @@ export const pressItems: PressItem[] = [
     date: 'Jul 23, 2022',
     description:
       'Melanin Minds profiled D’Andre Good’s leadership and the company’s commitment to economic empowerment.',
-    url: 'https://www.melaninminds.co/',
   },
 ]
 
@@ -175,13 +171,23 @@ export const milestones = [
   },
 ]
 
+/**
+ * Traction figures.
+ *
+ * Anything the codebase already knows is derived rather than retyped, so these
+ * tiles cannot drift from the data they describe. Only externally-sourced
+ * numbers (customers, accelerators) are literals.
+ *
+ * Order matters: the home and about pages render `traction.slice(0, 4)`.
+ */
+const liveMarkets = markets.filter((m) => m.status === 'active').length
+
 export const traction = [
-  { value: '25,000+', label: 'Customers served', verified: true },
-  { value: '2019', label: 'Founded as Urban Eatz', verified: true },
-  { value: '2023', label: 'Rebranded as Urban Goodz', verified: true },
-  { value: '15+', label: 'Markets across the U.S.', verified: true },
-  { value: '2', label: 'National accelerators', verified: true },
-  { value: '10', label: 'AI systems on the platform', verified: true },
-  { value: '15', label: 'Live U.S. markets', verified: true },
-  { value: '8+', label: 'Press & media features', verified: true },
+  { value: '25,000+', label: 'Customers served' },
+  { value: String(liveMarkets), label: 'Live U.S. markets' },
+  { value: '2020', label: 'Founded as Urban Eatz' },
+  { value: '2023', label: 'Rebranded as Urban Goodz' },
+  { value: '2', label: 'National accelerators' },
+  { value: String(aiSystems.length), label: 'AI systems on the platform' },
+  { value: String(pressItems.length), label: 'Press & media features' },
 ]

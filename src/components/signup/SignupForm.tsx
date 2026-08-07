@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Icon } from '../icons'
 import { signupSchema, type Audience, type AudienceConfig, type Field } from '~/lib/signup'
-import { submitSignup } from '~/server/signups'
+import { submitWaitlist, type WaitlistPayload } from '~/lib/waitlist'
 import { site } from '~/lib/site'
 import { Events, audienceEvent, track } from '~/lib/analytics'
 import { captureAttribution, getAttribution } from '~/lib/attribution'
@@ -91,7 +91,30 @@ export function SignupForm({ cfg }: { cfg: AudienceConfig }) {
 
     setState('sending')
     try {
-      const res = await submitSignup({ data: parsed.data })
+      // Production is a static build, so the server-function pipeline cannot
+      // run. POST the lead straight to the admin panel's public waitlist
+      // endpoint; the mailto link below remains the manual fallback.
+      const payload: WaitlistPayload = {
+        full_name: parsed.data.fullName,
+        email: parsed.data.email,
+        phone: parsed.data.phone || undefined,
+        city: parsed.data.city,
+        interest: cfg.id,
+        message: [
+          parsed.data.message,
+          parsed.data.businessName ? `Business: ${parsed.data.businessName}` : '',
+          parsed.data.category ? `Category: ${parsed.data.category}` : '',
+          parsed.data.vehicleType ? `Vehicle: ${parsed.data.vehicleType}` : '',
+          parsed.data.help?.length ? `Can help with: ${parsed.data.help.join(', ')}` : '',
+        ]
+          .filter(Boolean)
+          .join(' — ') || undefined,
+        source: parsed.data.context?.utmSource || parsed.data.context?.utmCampaign || undefined,
+        page: typeof window !== 'undefined' ? window.location.pathname : undefined,
+        consent: true,
+        company: parsed.data.company || undefined,
+      }
+      const res = await submitWaitlist(payload)
       if (res.ok) {
         track(Events.signupCompleted, { audience: cfg.id })
         const interest = audienceEvent[cfg.id]

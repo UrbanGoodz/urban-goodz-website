@@ -8,6 +8,7 @@ import {
 import * as React from 'react'
 import { Footer } from '~/components/Footer'
 import { Nav } from '~/components/Nav'
+import { PushOptIn } from '~/components/PushOptIn'
 import { site } from '~/lib/site'
 import appCss from '~/styles/app.css?url'
 import { jsonLd, seo } from '~/utils/seo'
@@ -90,6 +91,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Nav />
         <main id="main">{children}</main>
         <Footer />
+        <PushOptIn />
         <Scripts />
       </body>
     </html>
