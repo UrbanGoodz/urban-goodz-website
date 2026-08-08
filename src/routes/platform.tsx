@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { Icon } from '~/components/icons'
 import type { IconName } from '~/components/icons'
 import { MapLegend, MarketsMap } from '~/components/MarketsMap'
@@ -126,13 +126,23 @@ const steps = [
 
 /* ─── Section 6 · who it serves ──────────────────────────────────── */
 
-const audiences: { icon: IconName; who: string; title: string; body: string; img: string }[] = [
+const audiences: {
+  icon: IconName
+  who: string
+  title: string
+  body: string
+  img: string
+  to: string
+  search: Record<string, string>
+}[] = [
   {
     icon: 'bag',
     who: 'Customer',
     title: 'Your whole neighborhood, one account',
     body: 'Order dinner, book a stylist, refill a prescription and support the block you live on — without juggling five apps to do it.',
     img: '/images/assets/persona_customer.jpg',
+    to: '/join',
+    search: { as: 'app' },
   },
   {
     icon: 'business',
@@ -140,6 +150,8 @@ const audiences: { icon: IconName; who: string; title: string; body: string; img
     title: 'Compete with anyone',
     body: 'A storefront, real analytics and an AI teammate that reads your numbers and tells you what to do next. The tools the national chains have, sized for you.',
     img: '/images/assets/persona_business_owner.jpg',
+    to: '/join',
+    search: { as: 'business' },
   },
   {
     icon: 'drivers',
@@ -147,6 +159,8 @@ const audiences: { icon: IconName; who: string; title: string; body: string; img
     title: 'A partner, not a number',
     body: 'Routes that respect your time, earnings you can see clearly, and work that flexes around your life instead of the other way around.',
     img: '/images/assets/persona_driver.jpg',
+    to: '/join',
+    search: { as: 'driver' },
   },
   {
     icon: 'creator',
@@ -154,6 +168,11 @@ const audiences: { icon: IconName; who: string; title: string; body: string; img
     title: 'Turn an audience into a business',
     body: 'Your own storefront, your own catalog, your own terms — with the logistics handled so you can keep making the thing people came for.',
     img: '/images/assets/persona_creator.jpg',
+    // Creator commerce reuses the business-onboarding funnel — "Creator or
+    // events" is already one of its category options, so this pre-selects it
+    // rather than needing a separate signup path or backend endpoint.
+    to: '/join',
+    search: { as: 'business', category: 'Creator or events' },
   },
   {
     icon: 'services',
@@ -161,6 +180,8 @@ const audiences: { icon: IconName; who: string; title: string; body: string; img
     title: 'Booked, paid and reviewed',
     body: 'Scheduling, deposits and repeat clients in one place, so the hours you spend chasing admin go back into the work itself.',
     img: '/images/assets/persona_service_pro.jpg',
+    to: '/join',
+    search: { as: 'business', category: 'Services or trades' },
   },
   {
     icon: 'medical',
@@ -168,6 +189,8 @@ const audiences: { icon: IconName; who: string; title: string; body: string; img
     title: 'Care that arrives on time',
     body: 'Prescriptions, specimens and home health supplies moved with chain-of-custody tracking and the seriousness they deserve.',
     img: '/images/assets/persona_healthcare.jpg',
+    to: '/join',
+    search: { as: 'business', category: 'Pharmacy or health' },
   },
   {
     icon: 'freight',
@@ -175,6 +198,10 @@ const audiences: { icon: IconName; who: string; title: string; body: string; img
     title: 'Loads that keep moving',
     body: 'From box truck to eighteen-wheeler, a dispatch layer that finds the next load and plans the smartest way to it.',
     img: '/images/assets/persona_freight.jpg',
+    // Freight carriers apply through the driver funnel — "Semi / 18-wheeler"
+    // and "Box truck" are already vehicle-type options there.
+    to: '/join',
+    search: { as: 'driver', vehicleType: 'Semi / 18-wheeler' },
   },
 ]
 
@@ -479,7 +506,11 @@ function Platform() {
           <div className="mt-20 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {audiences.map((a, i) => (
               <Reveal key={a.who} delay={Math.min(i * 90, 450)} as="article" className="h-full">
-                <div className="lift group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-line bg-paper shadow-card">
+                <Link
+                  to={a.to}
+                  search={a.search}
+                  className="lift group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-line bg-paper shadow-card"
+                >
                   <div className="relative h-40 w-full overflow-hidden bg-cream">
                     <img
                       src={a.img}
@@ -504,8 +535,16 @@ function Platform() {
                       </h3>
                       <p className="mt-2.5 text-[0.97rem] leading-relaxed text-ug-black/65">{a.body}</p>
                     </div>
+                    <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-seasoning-600">
+                      Get started
+                      <Icon
+                        name="arrow-up-right"
+                        size={14}
+                        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
+                    </p>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>

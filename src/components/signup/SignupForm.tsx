@@ -9,15 +9,15 @@ import { captureAttribution, getAttribution } from '~/lib/attribution'
 type Values = Record<string, string | string[] | boolean>
 type Errors = Record<string, string>
 
-const blank = (audience: Audience): Values => ({
+const blank = (audience: Audience, initial?: { category?: string; vehicleType?: string }): Values => ({
   audience,
   fullName: '',
   email: '',
   phone: '',
   city: '',
   businessName: '',
-  category: '',
-  vehicleType: '',
+  category: initial?.category ?? '',
+  vehicleType: initial?.vehicleType ?? '',
   help: [],
   message: '',
   consent: false,
@@ -37,8 +37,14 @@ function mailtoFallback(cfg: AudienceConfig, v: Values) {
   return `mailto:${site.email}?subject=${subject}&body=${body}`
 }
 
-export function SignupForm({ cfg }: { cfg: AudienceConfig }) {
-  const [values, setValues] = useState<Values>(() => blank(cfg.id))
+export function SignupForm({
+  cfg,
+  initial,
+}: {
+  cfg: AudienceConfig
+  initial?: { category?: string; vehicleType?: string }
+}) {
+  const [values, setValues] = useState<Values>(() => blank(cfg.id, initial))
   const [errors, setErrors] = useState<Errors>({})
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'failed'>('idle')
   const [failure, setFailure] = useState('')
@@ -144,7 +150,7 @@ export function SignupForm({ cfg }: { cfg: AudienceConfig }) {
         <button
           type="button"
           onClick={() => {
-            setValues(blank(cfg.id))
+            setValues(blank(cfg.id, initial))
             setState('idle')
           }}
           className="btn btn-ghost mt-9 !text-ug-black/70"

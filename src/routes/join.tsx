@@ -3,13 +3,32 @@ import { Icon } from '~/components/icons'
 import { PageHero } from '~/components/PageHero'
 import { Reveal } from '~/components/primitives'
 import { SignupForm } from '~/components/signup/SignupForm'
-import { audienceConfig, audiences, isAudience, type Audience } from '~/lib/signup'
+import {
+  audienceConfig,
+  audiences,
+  businessCategories,
+  isAudience,
+  vehicleTypes,
+  type Audience,
+} from '~/lib/signup'
 import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
+type JoinSearch = { as: Audience; category?: string; vehicleType?: string }
+
 export const Route = createFileRoute('/join')({
-  validateSearch: (search: Record<string, unknown>): { as: Audience } => ({
+  validateSearch: (search: Record<string, unknown>): JoinSearch => ({
     as: isAudience(search.as) ? search.as : 'app',
+    // Lets a persona-specific link (e.g. "Creator" -> business + category)
+    // pre-fill the matching dropdown. Only known option strings are accepted.
+    category:
+      typeof search.category === 'string' && businessCategories.includes(search.category)
+        ? search.category
+        : undefined,
+    vehicleType:
+      typeof search.vehicleType === 'string' && vehicleTypes.includes(search.vehicleType)
+        ? search.vehicleType
+        : undefined,
   }),
   head: () => {
     const s = seo({
@@ -31,7 +50,7 @@ export const Route = createFileRoute('/join')({
 })
 
 function Join() {
-  const { as } = Route.useSearch()
+  const { as, category, vehicleType } = Route.useSearch()
   const cfg = audienceConfig[as]
 
   return (
@@ -162,9 +181,9 @@ function Join() {
               </div>
             </Reveal>
 
-            <Reveal key={`form-${as}`} delay={100}>
-              {/* remounts on audience change so state never leaks between forms */}
-              <SignupForm key={as} cfg={cfg} />
+            <Reveal key={`form-${as}-${category ?? ''}-${vehicleType ?? ''}`} delay={100}>
+              {/* remounts on audience/prefill change so state never leaks between forms */}
+              <SignupForm key={`${as}-${category ?? ''}-${vehicleType ?? ''}`} cfg={cfg} initial={{ category, vehicleType }} />
             </Reveal>
           </div>
         </div>
