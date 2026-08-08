@@ -7,17 +7,16 @@ import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/contact')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Contact — Urban Goodz',
-        description:
-          'Talk to Urban Goodz about downloading the app, becoming a business partner, driving with us or partnering with the platform.',
-        path: '/contact',
-        keywords: ['Urban Goodz contact', 'become a partner', 'Urban Goodz app', 'Houston delivery'],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Contact — Urban Goodz',
+      description:
+        'Talk to Urban Goodz about downloading the app, becoming a business partner, driving with us or partnering with the platform.',
+      path: '/contact',
+      keywords: ['Urban Goodz contact', 'become a partner', 'Urban Goodz app', 'Houston delivery'],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: Contact,
 })
 

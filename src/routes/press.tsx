@@ -8,17 +8,16 @@ import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/press')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Press & Recognition — Urban Goodz',
-        description:
-          'Backed by the Northwestern Mutual Black Founder Accelerator and gener8tor, and featured in the Houston Business Journal, Houston Chronicle, GoDaddy and more.',
-        path: '/press',
-        keywords: ['Urban Goodz press', 'D’Andre Good news', 'Urban Goodz awards', 'gener8tor accelerator'],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Press & Recognition — Urban Goodz',
+      description:
+        'Backed by the Northwestern Mutual Black Founder Accelerator and gener8tor, and featured in the Houston Business Journal, Houston Chronicle, GoDaddy and more.',
+      path: '/press',
+      keywords: ['Urban Goodz press', 'D’Andre Good news', 'Urban Goodz awards', 'gener8tor accelerator'],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: Press,
 })
 

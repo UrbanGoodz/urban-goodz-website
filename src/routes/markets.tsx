@@ -9,17 +9,16 @@ import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/markets')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Markets — Urban Goodz',
-        description:
-          'Urban Goodz is live across 15 markets in the U.S. — Houston, Dallas, Austin, Atlanta, Los Angeles, Miami, New York City and more — with expansion cities on the roadmap.',
-        path: '/markets',
-        keywords: ['Urban Goodz markets', 'Urban Goodz locations', 'local commerce expansion'],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Markets — Urban Goodz',
+      description:
+        'Urban Goodz is live across 15 markets in the U.S. — Houston, Dallas, Austin, Atlanta, Los Angeles, Miami, New York City and more — with expansion cities on the roadmap.',
+      path: '/markets',
+      keywords: ['Urban Goodz markets', 'Urban Goodz locations', 'local commerce expansion'],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: Markets,
 })
 

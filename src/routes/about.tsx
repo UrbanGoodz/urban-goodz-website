@@ -8,17 +8,16 @@ import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/about')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'About — Urban Goodz',
-        description:
-          'Urban Goodz is an AI-powered local commerce ecosystem founded by D’Andre Good in Houston, Texas — a modern digital Black Wall Street.',
-        path: '/about',
-        keywords: ['Urban Goodz about', 'D’Andre Good', 'Black-owned technology', 'Houston startup'],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'About — Urban Goodz',
+      description:
+        'Urban Goodz is an AI-powered local commerce ecosystem founded by D’Andre Good in Houston, Texas — a modern digital Black Wall Street.',
+      path: '/about',
+      keywords: ['Urban Goodz about', 'D’Andre Good', 'Black-owned technology', 'Houston startup'],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: About,
 })
 

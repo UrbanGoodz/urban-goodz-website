@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /coming-soon
+Disallow: /preview-phones
 
 Sitemap: https://www.urbangoodzdelivery.com/sitemap.xml

@@ -8,23 +8,22 @@ import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/services')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Services — Urban Goodz',
-        description:
-          'Urban Goodz Stranded connects you with nearby verified Goodz Samaritans and trusted roadside professionals through one intelligent, community-powered response network.',
-        path: '/services',
-        keywords: [
-          'Urban Goodz Stranded',
-          'roadside assistance app',
-          'community roadside help',
-          'Goodz Samaritan',
-          'jump start flat tire tow',
-        ],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Services — Urban Goodz',
+      description:
+        'Urban Goodz Stranded connects you with nearby verified Goodz Samaritans and trusted roadside professionals through one intelligent, community-powered response network.',
+      path: '/services',
+      keywords: [
+        'Urban Goodz Stranded',
+        'roadside assistance app',
+        'community roadside help',
+        'Goodz Samaritan',
+        'jump start flat tire tow',
+      ],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: Services,
 })
 

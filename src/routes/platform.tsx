@@ -8,23 +8,22 @@ import { site } from '~/lib/site'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/platform')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Why Urban Goodz Exists — Urban Goodz',
-        description:
-          'Local businesses built our communities. Urban Goodz was built so they can compete — one ecosystem for shopping, services, logistics, healthcare and creators, powered by AI and rooted in Houston.',
-        path: '/platform',
-        keywords: [
-          'why Urban Goodz',
-          'support local business',
-          'local commerce platform',
-          'Black owned business technology',
-          'Houston technology company',
-        ],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Why Urban Goodz Exists — Urban Goodz',
+      description:
+        'Local businesses built our communities. Urban Goodz was built so they can compete — one ecosystem for shopping, services, logistics, healthcare and creators, powered by AI and rooted in Houston.',
+      path: '/platform',
+      keywords: [
+        'why Urban Goodz',
+        'support local business',
+        'local commerce platform',
+        'Black owned business technology',
+        'Houston technology company',
+      ],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: Platform,
 })
 

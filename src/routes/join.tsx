@@ -11,23 +11,22 @@ export const Route = createFileRoute('/join')({
   validateSearch: (search: Record<string, unknown>): { as: Audience } => ({
     as: isAudience(search.as) ? search.as : 'app',
   }),
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Join Urban Goodz — app waitlist, business, driver & Samaritan signup',
-        description:
-          'Join the Urban Goodz app waitlist, list your local business, apply to drive, or become a verified Goodz Samaritan.',
-        path: '/join',
-        keywords: [
-          'Urban Goodz signup',
-          'app waitlist',
-          'list my business',
-          'become a driver',
-          'Goodz Samaritan application',
-        ],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Join Urban Goodz — app waitlist, business, driver & Samaritan signup',
+      description:
+        'Join the Urban Goodz app waitlist, list your local business, apply to drive, or become a verified Goodz Samaritan.',
+      path: '/join',
+      keywords: [
+        'Urban Goodz signup',
+        'app waitlist',
+        'list my business',
+        'become a driver',
+        'Goodz Samaritan application',
+      ],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: Join,
 })
 

@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { site } from '~/lib/site'
 import { Icon, Wordmark } from './icons'
 
-const columns: { heading: string; links: { label: string; to?: string; href?: string }[] }[] = [
+const columns: { heading: string; links: { label: string; to?: string; hash?: string; href?: string }[] }[] = [
   {
     heading: 'Company',
     links: [
@@ -16,9 +16,9 @@ const columns: { heading: string; links: { label: string; to?: string; href?: st
     heading: 'Platform',
     links: [
       { label: 'Platform', to: '/platform' },
-      { label: 'Business Portal', to: '/platform' },
-      { label: 'Driver Platform', to: '/platform' },
-      { label: 'Fashion Fit', to: '/platform' },
+      { label: 'Business Portal', to: '/', hash: 'business-platform' },
+      { label: 'Driver Platform', to: '/', hash: 'drivers' },
+      { label: 'Fashion Fit', to: '/', hash: 'fashion-fit' },
     ],
   },
   {
@@ -94,6 +94,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.to ?? '/'}
+                      hash={link.hash}
                       className="text-sm text-mute-on-dark transition hover:text-seasoning-300"
                     >
                       {link.label}

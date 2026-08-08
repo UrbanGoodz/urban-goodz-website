@@ -9,8 +9,18 @@ import {
   ScreenTracking,
   ScreenWallet,
 } from '~/components/visuals/PhoneScreens'
+import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/preview-phones')({
+  head: () => {
+    const s = seo({
+      title: 'Component preview — internal',
+      description: 'Internal component gallery. Not part of the public site.',
+      path: '/preview-phones',
+      noindex: true,
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: PreviewPhones,
 })
 

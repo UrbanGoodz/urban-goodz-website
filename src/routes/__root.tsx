@@ -42,7 +42,10 @@ export const Route = createRootRoute({
       { rel: 'icon', type: 'image/png', href: '/brand/ug-app-mark.png' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       { rel: 'manifest', href: '/site.webmanifest' },
-      { rel: 'canonical', href: site.url },
+      // No canonical here — each route's own seo() call (path: '/about', etc.)
+      // supplies the correct per-page canonical. A hardcoded one here overrode
+      // every route's canonical to site.url, telling search engines every page
+      // was a duplicate of the homepage.
     ],
     scripts: [
       {

@@ -32,6 +32,13 @@ export const Route = createFileRoute('/')({
         path: '/',
       }).meta,
     ],
+    links: [
+      ...seo({
+        title: `${site.name} — ${site.tagline}`,
+        description: site.description,
+        path: '/',
+      }).links,
+    ],
     scripts: [
       {
         type: 'application/ld+json',
@@ -204,7 +211,11 @@ function Home() {
             const Visual = featureVisuals[f.id]
             const reversed = i % 2 === 1
             return (
-              <div key={f.id} className={`grid items-center gap-12 lg:grid-cols-2 ${reversed ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+              <div
+                key={f.id}
+                id={f.id}
+                className={`scroll-mt-28 grid items-center gap-12 lg:grid-cols-2 ${reversed ? 'lg:[&>*:first-child]:order-2' : ''}`}
+              >
                 <Reveal>
                   <span className="eyebrow">{f.eyebrow}</span>
                   <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ug-black md:text-4xl">

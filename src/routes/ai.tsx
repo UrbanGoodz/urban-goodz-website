@@ -8,23 +8,22 @@ import { aiSystems } from '~/lib/platform'
 import { seo } from '~/utils/seo'
 
 export const Route = createFileRoute('/ai')({
-  head: () => ({
-    meta: [
-      ...seo({
-        title: 'Meet Monique & Skylar — Urban Goodz AI Team',
-        description:
-          'Monique is your local lifestyle concierge. Skylar is your executive chief of staff. Meet the two Urban Goodz Digital Employees working across the whole ecosystem, 24/7.',
-        path: '/ai',
-        keywords: [
-          'Urban Goodz AI',
-          'Monique AI concierge',
-          'Skylar chief of staff',
-          'AI digital employee',
-          'local commerce AI',
-        ],
-      }).meta,
-    ],
-  }),
+  head: () => {
+    const s = seo({
+      title: 'Meet Monique & Skylar — Urban Goodz AI Team',
+      description:
+        'Monique is your local lifestyle concierge. Skylar is your executive chief of staff. Meet the two Urban Goodz Digital Employees working across the whole ecosystem, 24/7.',
+      path: '/ai',
+      keywords: [
+        'Urban Goodz AI',
+        'Monique AI concierge',
+        'Skylar chief of staff',
+        'AI digital employee',
+        'local commerce AI',
+      ],
+    })
+    return { meta: s.meta, links: s.links }
+  },
   component: AiTeam,
 })
 
