@@ -104,7 +104,7 @@ function About() {
                 className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-seasoning/20 blur-3xl"
               />
               <img
-                src="/images/founder/dandre-speaking.png"
+                src="/images/founder/dandre-speaking.jpg"
                 alt={`${site.founder} speaking`}
                 className="size-14 rounded-2xl object-cover"
                 loading="lazy"
@@ -164,7 +164,7 @@ function About() {
             <Reveal>
               <div className="overflow-hidden rounded-[2.5rem] border border-line shadow-card">
                 <img
-                  src="/images/founder/dandre-good.png"
+                  src="/images/founder/dandre-good.jpg"
                   alt={`${site.founder}, founder of Urban Goodz`}
                   className="aspect-[4/5] w-full object-cover"
                   loading="lazy"

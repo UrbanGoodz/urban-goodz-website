@@ -294,7 +294,7 @@ function Platform() {
                 <div className="overflow-hidden rounded-[2rem] border border-line-on-dark bg-ink-800 shadow-lift">
                   <div className="relative aspect-[4/5] w-full">
                     <img
-                      src="/images/founder/dandre-good.png"
+                      src="/images/founder/dandre-good.jpg"
                       alt={`${site.founder}, Founder and CEO`}
                       className="size-full object-cover"
                       loading="lazy"
