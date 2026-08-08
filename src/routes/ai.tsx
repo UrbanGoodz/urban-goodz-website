@@ -262,7 +262,7 @@ function AiTeam() {
                 avatar="/images/ai/ebony-avatar.jpg"
                 turns={ebonyTurns}
               />
-              <p className="mt-4 text-center text-xs text-ug-black/45">
+              <p className="mt-4 text-center text-xs text-ug-black/60">
                 An illustration of how Monique works.
               </p>
             </Reveal>
@@ -352,7 +352,7 @@ function AiTeam() {
 
           <div className="mt-20">
             <Reveal>
-              <p className="text-center font-display text-sm font-bold uppercase tracking-[0.18em] text-seasoning-600">
+              <p className="text-center font-display text-sm font-bold uppercase tracking-[0.18em] text-seasoning-700">
                 Built into every part of Urban Goodz
               </p>
             </Reveal>

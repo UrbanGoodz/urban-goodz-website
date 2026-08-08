@@ -196,7 +196,7 @@ function Services() {
           {/* situations */}
           <div className="mx-auto mt-20 max-w-5xl">
             <Reveal>
-              <p className="text-center font-display text-sm font-bold uppercase tracking-[0.18em] text-seasoning-600">
+              <p className="text-center font-display text-sm font-bold uppercase tracking-[0.18em] text-seasoning-700">
                 Tell us what happened
               </p>
             </Reveal>
@@ -257,7 +257,7 @@ function Services() {
                       <Icon name={s.icon} size={24} />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="font-display text-xs font-bold tracking-[0.22em] text-seasoning-600">
+                      <p className="font-display text-xs font-bold tracking-[0.22em] text-seasoning-700">
                         STEP {s.n}
                       </p>
                       <h3 className="mt-2 font-display text-2xl font-bold text-ug-black">
@@ -401,7 +401,7 @@ function Services() {
           <div className="mt-16 grid gap-5 lg:grid-cols-2">
             <Reveal>
               <div className="h-full rounded-[1.75rem] border border-line bg-cream/50 p-8 md:p-10">
-                <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-ug-black/45">
+                <p className="font-display text-xs font-bold uppercase tracking-[0.18em] text-ug-black/60">
                   Traditional roadside assistance
                 </p>
                 <ul className="mt-7 space-y-4">
@@ -422,7 +422,7 @@ function Services() {
                   aria-hidden="true"
                   className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-seasoning/12 blur-3xl"
                 />
-                <p className="relative font-display text-xs font-bold uppercase tracking-[0.18em] text-seasoning-600">
+                <p className="relative font-display text-xs font-bold uppercase tracking-[0.18em] text-seasoning-700">
                   Urban Goodz Stranded
                 </p>
                 <ul className="relative mt-7 grid gap-4 sm:grid-cols-2">
@@ -584,11 +584,11 @@ function Services() {
               </div>
             </Reveal>
             <Reveal delay={320}>
-              <p className="mt-10 text-sm text-ug-black/50">
+              <p className="mt-10 text-sm text-ug-black/60">
                 Questions about Stranded? Reach us at{' '}
                 <a
                   href={`mailto:${site.email}`}
-                  className="font-semibold text-seasoning-600 underline underline-offset-4"
+                  className="font-semibold text-seasoning-700 underline underline-offset-4"
                 >
                   {site.email}
                 </a>

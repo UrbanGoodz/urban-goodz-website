@@ -310,7 +310,7 @@ function About() {
                 <article className="lift h-full rounded-3xl border border-line bg-white/70 p-6">
                   <p className="font-display text-base font-bold text-ug-black">{p.source}</p>
                   <h3 className="mt-2 text-sm font-medium leading-snug text-ug-black/75">{p.title}</h3>
-                  <p className="mt-4 text-xs font-medium text-ug-black/45">{p.date}</p>
+                  <p className="mt-4 text-xs font-medium text-ug-black/60">{p.date}</p>
                 </article>
               </Reveal>
             ))}

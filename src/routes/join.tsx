@@ -165,14 +165,14 @@ function Join() {
                   Email{' '}
                   <a
                     href={`mailto:${site.email}`}
-                    className="font-semibold text-seasoning-600 underline underline-offset-4"
+                    className="font-semibold text-seasoning-700 underline underline-offset-4"
                   >
                     {site.email}
                   </a>{' '}
                   or call{' '}
                   <a
                     href={`tel:${site.phone.replace(/[^0-9]/g, '')}`}
-                    className="font-semibold text-seasoning-600 underline underline-offset-4"
+                    className="font-semibold text-seasoning-700 underline underline-offset-4"
                   >
                     {site.phone}
                   </a>

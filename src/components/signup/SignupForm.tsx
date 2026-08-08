@@ -25,7 +25,7 @@ const blank = (audience: Audience, initial?: { category?: string; vehicleType?: 
 })
 
 const inputClass =
-  'w-full rounded-2xl border border-line bg-white px-4 py-3 text-[0.97rem] text-ug-black placeholder:text-ug-black/35 transition-colors focus:border-seasoning focus:outline-none'
+  'w-full rounded-2xl border border-line bg-white px-4 py-3 text-[0.97rem] text-ug-black placeholder:text-ug-black/35 transition-colors focus:border-seasoning'
 
 /** Falls back to a pre-filled email when the server route is unreachable. */
 function mailtoFallback(cfg: AudienceConfig, v: Values) {
@@ -340,7 +340,7 @@ export function SignupForm({
             Your details are safe in the form —{' '}
             <a
               href={mailtoFallback(cfg, values)}
-              className="font-semibold text-seasoning-600 underline underline-offset-4"
+              className="font-semibold text-seasoning-700 underline underline-offset-4"
             >
               send them to us by email instead
             </a>

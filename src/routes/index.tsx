@@ -303,7 +303,7 @@ function Home() {
                   </div>
                   <h3 className="mt-3 font-display text-lg font-semibold text-ug-black">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ug-black/60">{p.description}</p>
-                  <p className="mt-4 text-xs font-medium text-ug-black/45">{p.date}</p>
+                  <p className="mt-4 text-xs font-medium text-ug-black/60">{p.date}</p>
                 </article>
               </Reveal>
             ))}

@@ -78,7 +78,7 @@ export function DownloadSection() {
                 <p className="text-xs font-semibold uppercase tracking-widest text-ug-black/50">Have a business?</p>
                 <p className="mt-2 text-sm text-ug-black/75">
                   Partners get live in the marketplace in minutes — free. Reach{' '}
-                  <a href={`mailto:${site.email}`} className="font-semibold text-seasoning-600 underline underline-offset-4">
+                  <a href={`mailto:${site.email}`} className="font-semibold text-seasoning-700 underline underline-offset-4">
                     {site.email}
                   </a>
                 </p>

@@ -75,13 +75,13 @@ function Press() {
                     <h3 className="mt-3 font-display text-xl font-bold text-ug-black">{p.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-ug-black/65">{p.description}</p>
                     <div className="mt-4 flex flex-wrap items-center gap-4">
-                      <span className="text-xs font-medium text-ug-black/45">{p.date}</span>
+                      <span className="text-xs font-medium text-ug-black/60">{p.date}</span>
                       {p.url && (
                         <a
                           href={p.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-seasoning-600 transition hover:text-seasoning-700"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-seasoning-700 transition hover:text-ug-black"
                         >
                           Read the coverage
                           <Icon name="arrow-up-right" size={14} />
@@ -120,14 +120,14 @@ function Press() {
                   <h3 className="mt-3 font-display text-lg font-semibold text-ug-black">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ug-black/60">{p.description}</p>
                   <div className="mt-auto flex items-center justify-between pt-4">
-                    <span className="text-xs font-medium text-ug-black/45">{p.date}</span>
+                    <span className="text-xs font-medium text-ug-black/60">{p.date}</span>
                     {p.url && (
                       <a
                         href={p.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Read coverage from ${p.source}`}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-seasoning-600 transition hover:text-seasoning-700"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-seasoning-700 transition hover:text-ug-black"
                       >
                         Read
                         <Icon name="arrow-up-right" size={12} />

@@ -149,7 +149,7 @@ function Contact() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Doe"
-                    className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black placeholder:text-ug-black/35 focus:border-seasoning focus:outline-none"
+                    className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black placeholder:text-ug-black/35 focus:border-seasoning"
                   />
                 </label>
                 <label className="block">
@@ -160,7 +160,7 @@ function Contact() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black placeholder:text-ug-black/35 focus:border-seasoning focus:outline-none"
+                    className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black placeholder:text-ug-black/35 focus:border-seasoning"
                   />
                 </label>
               </div>
@@ -169,7 +169,7 @@ function Contact() {
                 <select
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
-                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black focus:border-seasoning focus:outline-none"
+                  className="w-full rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black focus:border-seasoning"
                 >
                   <option>General inquiry</option>
                   <option>Downloading the app</option>
@@ -186,14 +186,14 @@ function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Tell us a little about what you need…"
-                  className="w-full resize-none rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black placeholder:text-ug-black/35 focus:border-seasoning focus:outline-none"
+                  className="w-full resize-none rounded-xl border border-line bg-paper px-4 py-3 text-sm text-ug-black placeholder:text-ug-black/35 focus:border-seasoning"
                 />
               </label>
               <button type="submit" className="btn btn-primary mt-7 w-full">
                 Send message
                 <Icon name="arrow-up-right" size={18} />
               </button>
-              <p className="mt-4 text-center text-xs text-ug-black/50">
+              <p className="mt-4 text-center text-xs text-ug-black/60">
                 Opens your email app addressed to {site.email} — we reply personally.
               </p>
             </form>

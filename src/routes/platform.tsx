@@ -535,7 +535,7 @@ function Platform() {
                       </h3>
                       <p className="mt-2.5 text-[0.97rem] leading-relaxed text-ug-black/65">{a.body}</p>
                     </div>
-                    <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-seasoning-600">
+                    <p className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-seasoning-700">
                       Get started
                       <Icon
                         name="arrow-up-right"
@@ -678,11 +678,11 @@ function Platform() {
           </Reveal>
 
           <Reveal delay={500}>
-            <p className="mt-12 text-center text-sm text-ug-black/50">
+            <p className="mt-12 text-center text-sm text-ug-black/60">
               Questions first? Reach us at{' '}
               <a
                 href={`mailto:${site.email}`}
-                className="font-semibold text-seasoning-600 underline underline-offset-4"
+                className="font-semibold text-seasoning-700 underline underline-offset-4"
               >
                 {site.email}
               </a>
