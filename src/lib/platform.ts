@@ -3,24 +3,30 @@ export type EcosystemItem = {
   tagline: string
   icon: 'market' | 'retail' | 'restaurants' | 'groceries' | 'order' | 'services' | 'fashion' | 'medical' | 'freight' | 'creator' | 'community' | 'events' | 'business' | 'drivers' | 'ai'
   accent: string
+  /** Where the card links. Same-page items jump to their featureHighlights
+      anchor (see index.tsx); everything else routes into the existing
+      waitlist funnel — no separate signup path or backend needed. */
+  to: string
+  hash?: string
+  search?: Record<string, string>
 }
 
 export const ecosystem: EcosystemItem[] = [
-  { name: 'Marketplace', tagline: 'One home for everything local', icon: 'market', accent: 'orange' },
-  { name: 'Retail', tagline: 'Shop local stores online', icon: 'retail', accent: 'canvas' },
-  { name: 'Restaurants', tagline: 'Your neighborhood, delivered', icon: 'restaurants', accent: 'dijon' },
-  { name: 'Groceries', tagline: 'Everyday essentials, on demand', icon: 'groceries', accent: 'orange' },
-  { name: 'Order Anywhere', tagline: 'Order from any store, any time', icon: 'order', accent: 'canvas' },
-  { name: 'Book Services', tagline: 'Book trusted local pros', icon: 'services', accent: 'dijon' },
-  { name: 'Fashion Fit', tagline: 'AI-measured fashion that fits', icon: 'fashion', accent: 'orange' },
-  { name: 'Medical Courier', tagline: 'Secure, compliant healthcare delivery', icon: 'medical', accent: 'canvas' },
-  { name: 'Freight', tagline: 'Freight and load-board logistics', icon: 'freight', accent: 'dijon' },
-  { name: 'Creator Commerce', tagline: 'Turn audiences into income', icon: 'creator', accent: 'orange' },
-  { name: 'Community', tagline: 'Connection beyond the transaction', icon: 'community', accent: 'canvas' },
-  { name: 'Events', tagline: 'Tickets, vendors and experiences', icon: 'events', accent: 'dijon' },
-  { name: 'Business Portal', tagline: 'Run your whole business here', icon: 'business', accent: 'orange' },
-  { name: 'Driver Platform', tagline: 'Earn on your own schedule', icon: 'drivers', accent: 'canvas' },
-  { name: 'AI', tagline: 'An AI teammate across everything', icon: 'ai', accent: 'dijon' },
+  { name: 'Marketplace', tagline: 'One home for everything local', icon: 'market', accent: 'orange', to: '/', hash: 'marketplace' },
+  { name: 'Retail', tagline: 'Shop local stores online', icon: 'retail', accent: 'canvas', to: '/join', search: { as: 'app' } },
+  { name: 'Restaurants', tagline: 'Your neighborhood, delivered', icon: 'restaurants', accent: 'dijon', to: '/join', search: { as: 'app' } },
+  { name: 'Groceries', tagline: 'Everyday essentials, on demand', icon: 'groceries', accent: 'orange', to: '/join', search: { as: 'app' } },
+  { name: 'Order Anywhere', tagline: 'Order from any store, any time', icon: 'order', accent: 'canvas', to: '/join', search: { as: 'app' } },
+  { name: 'Book Services', tagline: 'Book trusted local pros', icon: 'services', accent: 'dijon', to: '/join', search: { as: 'app' } },
+  { name: 'Fashion Fit', tagline: 'AI-measured fashion that fits', icon: 'fashion', accent: 'orange', to: '/', hash: 'fashion-fit' },
+  { name: 'Medical Courier', tagline: 'Secure, compliant healthcare delivery', icon: 'medical', accent: 'canvas', to: '/', hash: 'medical-courier' },
+  { name: 'Freight', tagline: 'Freight and load-board logistics', icon: 'freight', accent: 'dijon', to: '/join', search: { as: 'driver', vehicleType: 'Semi / 18-wheeler' } },
+  { name: 'Creator Commerce', tagline: 'Turn audiences into income', icon: 'creator', accent: 'orange', to: '/join', search: { as: 'business', category: 'Creator or events' } },
+  { name: 'Community', tagline: 'Connection beyond the transaction', icon: 'community', accent: 'canvas', to: '/about' },
+  { name: 'Events', tagline: 'Tickets, vendors and experiences', icon: 'events', accent: 'dijon', to: '/join', search: { as: 'app' } },
+  { name: 'Business Portal', tagline: 'Run your whole business here', icon: 'business', accent: 'orange', to: '/', hash: 'business-platform' },
+  { name: 'Driver Platform', tagline: 'Earn on your own schedule', icon: 'drivers', accent: 'canvas', to: '/', hash: 'drivers' },
+  { name: 'AI', tagline: 'An AI teammate across everything', icon: 'ai', accent: 'dijon', to: '/', hash: 'ai' },
 ]
 
 export const aiSystems = [
