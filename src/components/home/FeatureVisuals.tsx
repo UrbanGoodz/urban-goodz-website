@@ -198,7 +198,7 @@ export function AiVisual() {
       <div className="rounded-2xl bg-ug-black p-4 text-ink-on-dark shadow-card">
         <div className="flex items-center gap-3">
           <div className="flex -space-x-2 shrink-0">
-            <img src="/images/ai/ebony-avatar.jpg" alt="Monique" className="size-8 rounded-full object-cover ring-2 ring-seasoning" />
+            <img src="/images/ai/monique-avatar.jpg" alt="Monique" className="size-8 rounded-full object-cover ring-2 ring-seasoning" />
             <img src="/images/ai/skylar-avatar.jpg" alt="Skylar" className="size-8 rounded-full object-cover ring-2 ring-dijon" />
           </div>
           <div className="flex-1 min-w-0">

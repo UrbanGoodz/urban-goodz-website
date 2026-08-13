@@ -128,7 +128,7 @@ function Join() {
               {as === 'app' && (
                 <div className="mt-8 flex items-center gap-3.5 rounded-2xl border border-seasoning/30 bg-seasoning/10 p-4">
                   <img
-                    src="/images/ai/ebony-avatar.jpg"
+                    src="/images/ai/monique-avatar.jpg"
                     alt="Monique"
                     className="size-10 rounded-full object-cover ring-2 ring-seasoning shrink-0"
                   />

@@ -56,7 +56,7 @@ export function AiSection() {
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3 shrink-0">
                 <img
-                  src="/images/ai/ebony-avatar.jpg"
+                  src="/images/ai/monique-avatar.jpg"
                   alt="Monique"
                   className="size-12 rounded-full object-cover ring-2 ring-seasoning"
                 />

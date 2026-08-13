@@ -29,7 +29,7 @@ export const Route = createFileRoute('/ai')({
 
 /* ─── Capabilities ───────────────────────────────────────────────── */
 
-const ebonyCan: { label: string; icon: IconName }[] = [
+const moniqueCan: { label: string; icon: IconName }[] = [
   { label: 'Discover restaurants', icon: 'restaurants' },
   { label: 'Shop local businesses', icon: 'market' },
   { label: 'Find Black-owned businesses', icon: 'community' },
@@ -84,7 +84,7 @@ const surfaces: { label: string; icon: IconName }[] = [
 
 /* ─── Conversations ──────────────────────────────────────────────── */
 
-const ebonyTurns: Turn[] = [
+const moniqueTurns: Turn[] = [
   { from: 'user', text: 'Need dinner for 4 tonight, somewhere Black-owned, under $80.' },
   {
     from: 'ai',
@@ -181,7 +181,7 @@ function AiTeam() {
                 initial="E"
                 name="Monique"
                 role="Local Lifestyle Concierge"
-                src="/images/ai/ebony.jpg"
+                src="/images/ai/monique.jpg"
               />
               <LinkBtn to="/join" search={{ as: 'app' }} variant="primary" className="mt-5 w-full">
                 Talk to Monique
@@ -241,7 +241,7 @@ function AiTeam() {
               </div>
 
               <div className="mt-10 flex flex-wrap gap-2.5">
-                {ebonyCan.map((c, i) => (
+                {moniqueCan.map((c, i) => (
                   <Reveal key={c.label} delay={Math.min(i * 45, 400)} as="span">
                     <span className="lift flex items-center gap-2 rounded-full border border-line bg-white/80 px-4 py-2.5 text-sm font-semibold text-ug-black shadow-card">
                       <span className="grid size-6 shrink-0 place-items-center rounded-full grad-seasoning text-ug-black">
@@ -259,8 +259,8 @@ function AiTeam() {
                 name="Monique"
                 role="Local Lifestyle Concierge"
                 icon="community"
-                avatar="/images/ai/ebony-avatar.jpg"
-                turns={ebonyTurns}
+                avatar="/images/ai/monique-avatar.jpg"
+                turns={moniqueTurns}
               />
               <p className="mt-4 text-center text-xs text-ug-black/60">
                 An illustration of how Monique works.

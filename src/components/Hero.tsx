@@ -3,7 +3,7 @@ import { LinkBtn, Reveal } from './primitives'
 import { PhoneMock } from './PhoneMock'
 
 const floats = [
-  { label: 'Monique active · Lifestyle Concierge', icon: 'spark' as const, avatar: '/images/ai/ebony-avatar.jpg', cls: 'left-[-8%] top-8 animate-float-slow' },
+  { label: 'Monique active · Lifestyle Concierge', icon: 'spark' as const, avatar: '/images/ai/monique-avatar.jpg', cls: 'left-[-8%] top-8 animate-float-slow' },
   { label: '25,000+ customers', icon: 'community' as const, cls: 'right-[-6%] top-1/4 animate-float' },
   { label: 'Skylar monitoring · Chief of Staff', icon: 'business' as const, avatar: '/images/ai/skylar-avatar.jpg', cls: 'left-[-14%] bottom-1/4 animate-float' },
   { label: 'Route optimized', icon: 'routes' as const, cls: 'right-[-8%] bottom-12 animate-float-slow' },
